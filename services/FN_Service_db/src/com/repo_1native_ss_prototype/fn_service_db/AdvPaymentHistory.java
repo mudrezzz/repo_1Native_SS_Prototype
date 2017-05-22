@@ -26,14 +26,14 @@ import javax.persistence.Table;
 public class AdvPaymentHistory implements Serializable {
 
     private Integer id;
-    private int publisherId;
     private Integer advId;
-    private int type;
-    private float summ;
-    private float balanceBefore;
     private float balanceAfter;
-    private String transactionName;
+    private float balanceBefore;
     private String documentRef;
+    private int publisherId;
+    private float summ;
+    private String transactionName;
+    private int type;
     private Publisher publisher;
 
     @Id
@@ -47,15 +47,6 @@ public class AdvPaymentHistory implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`publisher_id`", nullable = false, scale = 0, precision = 10)
-    public int getPublisherId() {
-        return this.publisherId;
-    }
-
-    public void setPublisherId(int publisherId) {
-        this.publisherId = publisherId;
-    }
-
     @Column(name = "`adv_id`", nullable = true, scale = 0, precision = 10)
     public Integer getAdvId() {
         return this.advId;
@@ -65,25 +56,16 @@ public class AdvPaymentHistory implements Serializable {
         this.advId = advId;
     }
 
-    @Column(name = "`type`", nullable = false, scale = 0, precision = 10)
-    public int getType() {
-        return this.type;
+    @Column(name = "`balance_after`", nullable = false, scale = 4, precision = 12)
+    public float getBalanceAfter() {
+        return this.balanceAfter;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setBalanceAfter(float balanceAfter) {
+        this.balanceAfter = balanceAfter;
     }
 
-    @Column(name = "`summ`", nullable = false, scale = 2, precision = 10)
-    public float getSumm() {
-        return this.summ;
-    }
-
-    public void setSumm(float summ) {
-        this.summ = summ;
-    }
-
-    @Column(name = "`balance_before`", nullable = false, scale = 2, precision = 10)
+    @Column(name = "`balance_before`", nullable = false, scale = 4, precision = 12)
     public float getBalanceBefore() {
         return this.balanceBefore;
     }
@@ -92,13 +74,31 @@ public class AdvPaymentHistory implements Serializable {
         this.balanceBefore = balanceBefore;
     }
 
-    @Column(name = "`balance_after`", nullable = false, scale = 2, precision = 10)
-    public float getBalanceAfter() {
-        return this.balanceAfter;
+    @Column(name = "`document_ref`", nullable = false, length = 255)
+    public String getDocumentRef() {
+        return this.documentRef;
     }
 
-    public void setBalanceAfter(float balanceAfter) {
-        this.balanceAfter = balanceAfter;
+    public void setDocumentRef(String documentRef) {
+        this.documentRef = documentRef;
+    }
+
+    @Column(name = "`publisher_id`", nullable = false, scale = 0, precision = 10)
+    public int getPublisherId() {
+        return this.publisherId;
+    }
+
+    public void setPublisherId(int publisherId) {
+        this.publisherId = publisherId;
+    }
+
+    @Column(name = "`summ`", nullable = false, scale = 4, precision = 12)
+    public float getSumm() {
+        return this.summ;
+    }
+
+    public void setSumm(float summ) {
+        this.summ = summ;
     }
 
     @Column(name = "`transaction_name`", nullable = false, length = 255)
@@ -110,13 +110,13 @@ public class AdvPaymentHistory implements Serializable {
         this.transactionName = transactionName;
     }
 
-    @Column(name = "`document_ref`", nullable = false, length = 255)
-    public String getDocumentRef() {
-        return this.documentRef;
+    @Column(name = "`type`", nullable = false, scale = 0, precision = 10)
+    public int getType() {
+        return this.type;
     }
 
-    public void setDocumentRef(String documentRef) {
-        this.documentRef = documentRef;
+    public void setType(int type) {
+        this.type = type;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

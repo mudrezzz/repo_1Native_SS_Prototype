@@ -1,0 +1,19 @@
+<wm-page data-ng-controller="ZonesPageController" pagetitle="Рекламные области" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-container name="container1"></wm-container>
+            <wm-container name="container2">
+                <wm-grid title="Рекламные области" dataset="bind:Variables.FN_Service_dbTagsData.dataSet" navigation="Basic" name="zonesGrid" showheader="false">
+                    <wm-grid-column binding="id" caption="Id" type="integer" primary-key="true" generator="identity" readonly="true" edit-widget-type="number" show="true"></wm-grid-column>
+                    <wm-grid-column binding="name" caption="Название" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Статус" type="integer" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="type" caption="Тип" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="sites.domain" caption="Сайт" type="string" generator="assigned" readonly="true" edit-widget-type="text" show="true" related-entity-name="Sites"></wm-grid-column>
+                </wm-grid>
+            </wm-container>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -4,13 +4,14 @@
             <wm-anchor caption="Dashboard" name="dashboardLink" iconclass="wi wi-bar-graph" on-click="Variables.goToPage_Dashboard.invoke()"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_order">
-            <wm-anchor caption="Pending Orders" name="orderLink" iconclass="wi wi-file" on-click="Variables.goToPage_Main.invoke()"></wm-anchor>
+            <wm-anchor caption="Кампании" name="campaigns" iconclass="wi wi-hexagon" on-click="Variables.goToPage_Main.invoke()"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_inventory">
-            <wm-anchor caption="Inventory" name="inventoryLink" iconclass="wi wi-tag"></wm-anchor>
+            <wm-anchor caption="Области" name="Zones" iconclass="wi wi-windows" on-click="Variables.goToPage_Zones.invoke()"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_support">
-            <wm-anchor caption="Support Calls" name="supportLink" iconclass="wi wi-envelope"></wm-anchor>
+            <wm-anchor caption="Статистика РК" name="stat_campaign" iconclass="wi wi-pie-chart"></wm-anchor>
+            <wm-anchor caption="Статистика Областей" iconclass="wi wi-pie-chart-outlined" name="stat_zones"></wm-anchor>
         </wm-nav-item>
     </wm-nav>
 </wm-partial>

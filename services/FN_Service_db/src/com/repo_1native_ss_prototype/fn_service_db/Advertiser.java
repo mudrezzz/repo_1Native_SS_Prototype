@@ -26,9 +26,9 @@ import javax.persistence.Table;
 public class Advertiser implements Serializable {
 
     private Integer id;
-    private String name;
-    private String description;
     private int balance;
+    private String description;
+    private String name;
     private Integer publisherId;
     private Publisher publisher;
 
@@ -43,13 +43,13 @@ public class Advertiser implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`name`", nullable = true, length = 255)
-    public String getName() {
-        return this.name;
+    @Column(name = "`balance`", nullable = false, scale = 0, precision = 10)
+    public int getBalance() {
+        return this.balance;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     @Column(name = "`description`", nullable = true, length = 255)
@@ -61,13 +61,13 @@ public class Advertiser implements Serializable {
         this.description = description;
     }
 
-    @Column(name = "`balance`", nullable = false, scale = 0, precision = 10)
-    public int getBalance() {
-        return this.balance;
+    @Column(name = "`name`", nullable = true, length = 255)
+    public String getName() {
+        return this.name;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Column(name = "`publisher_id`", nullable = true, scale = 0, precision = 10)

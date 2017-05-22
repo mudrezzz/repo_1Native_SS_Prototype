@@ -27,23 +27,23 @@ import javax.persistence.Table;
 public class StatsDays implements Serializable {
 
     private Integer id;
-    private int campaignId;
-    private Date date;
     private int adsId;
-    private int tagId;
-    private float summ;
-    private Integer osId;
     private Integer browserId;
-    private Integer deviceId;
-    private int impressions;
+    private int campaignId;
     private int clicks;
     private int conversions;
-    private Tags tags;
-    private OsDictionary osDictionary;
+    private Date date;
+    private Integer deviceId;
+    private int impressions;
+    private Integer osId;
+    private float summ;
+    private int tagId;
     private Campaign campaign;
-    private BrowserDictionary browserDictionary;
     private Ads ads;
+    private BrowserDictionary browserDictionary;
+    private OsDictionary osDictionary;
     private DeviceDictionary deviceDictionary;
+    private Tags tags;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,24 +56,6 @@ public class StatsDays implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`campaign_id`", nullable = false, scale = 0, precision = 10)
-    public int getCampaignId() {
-        return this.campaignId;
-    }
-
-    public void setCampaignId(int campaignId) {
-        this.campaignId = campaignId;
-    }
-
-    @Column(name = "`date`", nullable = false)
-    public Date getDate() {
-        return this.date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     @Column(name = "`ads_id`", nullable = false, scale = 0, precision = 10)
     public int getAdsId() {
         return this.adsId;
@@ -81,33 +63,6 @@ public class StatsDays implements Serializable {
 
     public void setAdsId(int adsId) {
         this.adsId = adsId;
-    }
-
-    @Column(name = "`tag_id`", nullable = false, scale = 0, precision = 10)
-    public int getTagId() {
-        return this.tagId;
-    }
-
-    public void setTagId(int tagId) {
-        this.tagId = tagId;
-    }
-
-    @Column(name = "`summ`", nullable = false, scale = 2, precision = 10)
-    public float getSumm() {
-        return this.summ;
-    }
-
-    public void setSumm(float summ) {
-        this.summ = summ;
-    }
-
-    @Column(name = "`os_id`", nullable = true, scale = 0, precision = 10)
-    public Integer getOsId() {
-        return this.osId;
-    }
-
-    public void setOsId(Integer osId) {
-        this.osId = osId;
     }
 
     @Column(name = "`browser_id`", nullable = true, scale = 0, precision = 10)
@@ -119,22 +74,13 @@ public class StatsDays implements Serializable {
         this.browserId = browserId;
     }
 
-    @Column(name = "`device_id`", nullable = true, scale = 0, precision = 10)
-    public Integer getDeviceId() {
-        return this.deviceId;
+    @Column(name = "`campaign_id`", nullable = false, scale = 0, precision = 10)
+    public int getCampaignId() {
+        return this.campaignId;
     }
 
-    public void setDeviceId(Integer deviceId) {
-        this.deviceId = deviceId;
-    }
-
-    @Column(name = "`impressions`", nullable = false, scale = 0, precision = 10)
-    public int getImpressions() {
-        return this.impressions;
-    }
-
-    public void setImpressions(int impressions) {
-        this.impressions = impressions;
+    public void setCampaignId(int campaignId) {
+        this.campaignId = campaignId;
     }
 
     @Column(name = "`clicks`", nullable = false, scale = 0, precision = 10)
@@ -155,32 +101,58 @@ public class StatsDays implements Serializable {
         this.conversions = conversions;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`tag_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
-    public Tags getTags() {
-        return this.tags;
+    @Column(name = "`date`", nullable = false)
+    public Date getDate() {
+        return this.date;
     }
 
-    public void setTags(Tags tags) {
-        if(tags != null) {
-            this.tagId = tags.getId();
-        }
-
-        this.tags = tags;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`os_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
-    public OsDictionary getOsDictionary() {
-        return this.osDictionary;
+    @Column(name = "`device_id`", nullable = true, scale = 0, precision = 10)
+    public Integer getDeviceId() {
+        return this.deviceId;
     }
 
-    public void setOsDictionary(OsDictionary osDictionary) {
-        if(osDictionary != null) {
-            this.osId = osDictionary.getId();
-        }
+    public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
+    }
 
-        this.osDictionary = osDictionary;
+    @Column(name = "`impressions`", nullable = false, scale = 0, precision = 10)
+    public int getImpressions() {
+        return this.impressions;
+    }
+
+    public void setImpressions(int impressions) {
+        this.impressions = impressions;
+    }
+
+    @Column(name = "`os_id`", nullable = true, scale = 0, precision = 10)
+    public Integer getOsId() {
+        return this.osId;
+    }
+
+    public void setOsId(Integer osId) {
+        this.osId = osId;
+    }
+
+    @Column(name = "`summ`", nullable = false, scale = 4, precision = 12)
+    public float getSumm() {
+        return this.summ;
+    }
+
+    public void setSumm(float summ) {
+        this.summ = summ;
+    }
+
+    @Column(name = "`tag_id`", nullable = false, scale = 0, precision = 10)
+    public int getTagId() {
+        return this.tagId;
+    }
+
+    public void setTagId(int tagId) {
+        this.tagId = tagId;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -198,20 +170,6 @@ public class StatsDays implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`browser_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
-    public BrowserDictionary getBrowserDictionary() {
-        return this.browserDictionary;
-    }
-
-    public void setBrowserDictionary(BrowserDictionary browserDictionary) {
-        if(browserDictionary != null) {
-            this.browserId = browserDictionary.getId();
-        }
-
-        this.browserDictionary = browserDictionary;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`ads_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
     public Ads getAds() {
         return this.ads;
@@ -226,6 +184,34 @@ public class StatsDays implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`browser_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
+    public BrowserDictionary getBrowserDictionary() {
+        return this.browserDictionary;
+    }
+
+    public void setBrowserDictionary(BrowserDictionary browserDictionary) {
+        if(browserDictionary != null) {
+            this.browserId = browserDictionary.getId();
+        }
+
+        this.browserDictionary = browserDictionary;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`os_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
+    public OsDictionary getOsDictionary() {
+        return this.osDictionary;
+    }
+
+    public void setOsDictionary(OsDictionary osDictionary) {
+        if(osDictionary != null) {
+            this.osId = osDictionary.getId();
+        }
+
+        this.osDictionary = osDictionary;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`device_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
     public DeviceDictionary getDeviceDictionary() {
         return this.deviceDictionary;
@@ -237,6 +223,20 @@ public class StatsDays implements Serializable {
         }
 
         this.deviceDictionary = deviceDictionary;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`tag_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
+    public Tags getTags() {
+        return this.tags;
+    }
+
+    public void setTags(Tags tags) {
+        if(tags != null) {
+            this.tagId = tags.getId();
+        }
+
+        this.tags = tags;
     }
 
     @Override

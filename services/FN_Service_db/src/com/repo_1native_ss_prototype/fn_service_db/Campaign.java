@@ -33,24 +33,24 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Campaign implements Serializable {
 
     private Integer id;
-    private String name;
-    private int status;
+    private Integer advId;
+    private String browsersJson;
+    private float budget;
     private Date dateFrom;
     private Date dateTo;
-    private Integer freqPerHour;
-    private Integer freqPerDay;
-    private Integer freqPerWeek;
-    private String keywordsJson;
-    private String browsersJson;
-    private String osJson;
     private String daysJson;
+    private Integer freqPerDay;
+    private Integer freqPerHour;
+    private Integer freqPerWeek;
+    private String geoJson;
     private String hoursJson;
-    private float budget;
+    private String keywordsJson;
+    private String name;
+    private String osJson;
     private float price;
     private int priceType;
-    private String geoJson;
     private int publisherId;
-    private Integer advId;
+    private int status;
     private Publisher publisher;
     private List<Ads> adses;
     private List<StatsDays> statsDayses;
@@ -66,22 +66,31 @@ public class Campaign implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`name`", nullable = true, length = 255)
-    public String getName() {
-        return this.name;
+    @Column(name = "`adv_id`", nullable = true, scale = 0, precision = 10)
+    public Integer getAdvId() {
+        return this.advId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdvId(Integer advId) {
+        this.advId = advId;
     }
 
-    @Column(name = "`status`", nullable = false, scale = 0, precision = 10)
-    public int getStatus() {
-        return this.status;
+    @Column(name = "`browsers_json`", nullable = true, length = 255)
+    public String getBrowsersJson() {
+        return this.browsersJson;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setBrowsersJson(String browsersJson) {
+        this.browsersJson = browsersJson;
+    }
+
+    @Column(name = "`budget`", nullable = false, scale = 4, precision = 12)
+    public float getBudget() {
+        return this.budget;
+    }
+
+    public void setBudget(float budget) {
+        this.budget = budget;
     }
 
     @Column(name = "`date_from`", nullable = false)
@@ -102,13 +111,13 @@ public class Campaign implements Serializable {
         this.dateTo = dateTo;
     }
 
-    @Column(name = "`freq_per_hour`", nullable = true, scale = 0, precision = 10)
-    public Integer getFreqPerHour() {
-        return this.freqPerHour;
+    @Column(name = "`days_json`", nullable = true, length = 255)
+    public String getDaysJson() {
+        return this.daysJson;
     }
 
-    public void setFreqPerHour(Integer freqPerHour) {
-        this.freqPerHour = freqPerHour;
+    public void setDaysJson(String daysJson) {
+        this.daysJson = daysJson;
     }
 
     @Column(name = "`freq_per_day`", nullable = true, scale = 0, precision = 10)
@@ -120,6 +129,15 @@ public class Campaign implements Serializable {
         this.freqPerDay = freqPerDay;
     }
 
+    @Column(name = "`freq_per_hour`", nullable = true, scale = 0, precision = 10)
+    public Integer getFreqPerHour() {
+        return this.freqPerHour;
+    }
+
+    public void setFreqPerHour(Integer freqPerHour) {
+        this.freqPerHour = freqPerHour;
+    }
+
     @Column(name = "`freq_per_week`", nullable = true, scale = 0, precision = 10)
     public Integer getFreqPerWeek() {
         return this.freqPerWeek;
@@ -129,40 +147,13 @@ public class Campaign implements Serializable {
         this.freqPerWeek = freqPerWeek;
     }
 
-    @Column(name = "`keywords_json`", nullable = true, length = 255)
-    public String getKeywordsJson() {
-        return this.keywordsJson;
+    @Column(name = "`geo_json`", nullable = true, length = 255)
+    public String getGeoJson() {
+        return this.geoJson;
     }
 
-    public void setKeywordsJson(String keywordsJson) {
-        this.keywordsJson = keywordsJson;
-    }
-
-    @Column(name = "`browsers_json`", nullable = true, length = 255)
-    public String getBrowsersJson() {
-        return this.browsersJson;
-    }
-
-    public void setBrowsersJson(String browsersJson) {
-        this.browsersJson = browsersJson;
-    }
-
-    @Column(name = "`os_json`", nullable = true, length = 255)
-    public String getOsJson() {
-        return this.osJson;
-    }
-
-    public void setOsJson(String osJson) {
-        this.osJson = osJson;
-    }
-
-    @Column(name = "`days_json`", nullable = true, length = 255)
-    public String getDaysJson() {
-        return this.daysJson;
-    }
-
-    public void setDaysJson(String daysJson) {
-        this.daysJson = daysJson;
+    public void setGeoJson(String geoJson) {
+        this.geoJson = geoJson;
     }
 
     @Column(name = "`hours_json`", nullable = true, length = 255)
@@ -174,16 +165,34 @@ public class Campaign implements Serializable {
         this.hoursJson = hoursJson;
     }
 
-    @Column(name = "`budget`", nullable = false, scale = 2, precision = 10)
-    public float getBudget() {
-        return this.budget;
+    @Column(name = "`keywords_json`", nullable = true, length = 255)
+    public String getKeywordsJson() {
+        return this.keywordsJson;
     }
 
-    public void setBudget(float budget) {
-        this.budget = budget;
+    public void setKeywordsJson(String keywordsJson) {
+        this.keywordsJson = keywordsJson;
     }
 
-    @Column(name = "`price`", nullable = false, scale = 1, precision = 10)
+    @Column(name = "`name`", nullable = true, length = 255)
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "`os_json`", nullable = true, length = 255)
+    public String getOsJson() {
+        return this.osJson;
+    }
+
+    public void setOsJson(String osJson) {
+        this.osJson = osJson;
+    }
+
+    @Column(name = "`price`", nullable = false, scale = 4, precision = 12)
     public float getPrice() {
         return this.price;
     }
@@ -201,15 +210,6 @@ public class Campaign implements Serializable {
         this.priceType = priceType;
     }
 
-    @Column(name = "`geo_json`", nullable = true, length = 255)
-    public String getGeoJson() {
-        return this.geoJson;
-    }
-
-    public void setGeoJson(String geoJson) {
-        this.geoJson = geoJson;
-    }
-
     @Column(name = "`publisher_id`", nullable = false, scale = 0, precision = 10)
     public int getPublisherId() {
         return this.publisherId;
@@ -219,13 +219,13 @@ public class Campaign implements Serializable {
         this.publisherId = publisherId;
     }
 
-    @Column(name = "`adv_id`", nullable = true, scale = 0, precision = 10)
-    public Integer getAdvId() {
-        return this.advId;
+    @Column(name = "`status`", nullable = false, scale = 0, precision = 10)
+    public int getStatus() {
+        return this.status;
     }
 
-    public void setAdvId(Integer advId) {
-        this.advId = advId;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

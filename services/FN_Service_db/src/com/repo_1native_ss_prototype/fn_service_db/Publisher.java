@@ -30,8 +30,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Publisher implements Serializable {
 
     private Integer id;
-    private int balance;
     private float _1nComission;
+    private int balance;
     private List<Advertiser> advertisers;
     private List<AdvPaymentHistory> advPaymentHistories;
     private List<Campaign> campaigns;
@@ -51,6 +51,15 @@ public class Publisher implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "`1n_comission`", nullable = false, scale = 4, precision = 12)
+    public float get_1nComission() {
+        return this._1nComission;
+    }
+
+    public void set_1nComission(float _1nComission) {
+        this._1nComission = _1nComission;
+    }
+
     @Column(name = "`balance`", nullable = false, scale = 0, precision = 10)
     public int getBalance() {
         return this.balance;
@@ -58,15 +67,6 @@ public class Publisher implements Serializable {
 
     public void setBalance(int balance) {
         this.balance = balance;
-    }
-
-    @Column(name = "`1n_comission`", nullable = false, scale = 2, precision = 10)
-    public float get_1nComission() {
-        return this._1nComission;
-    }
-
-    public void set_1nComission(float _1nComission) {
-        this._1nComission = _1nComission;
     }
 
     @JsonInclude(Include.NON_EMPTY)

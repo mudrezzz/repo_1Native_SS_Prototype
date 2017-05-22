@@ -1195,6 +1195,17 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
+  "goToPage_Zones" : {
+    "_id" : "wm-goToPage_Zones-wm.NavigationVariable-1495480199917",
+    "name" : "goToPage_Zones",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Zones",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
     "name" : "supportedLocale",

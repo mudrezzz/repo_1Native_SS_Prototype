@@ -26,8 +26,8 @@ import javax.persistence.Table;
 public class Users implements Serializable {
 
     private Integer id;
-    private String name;
     private String email;
+    private String name;
     private String password;
     private Integer publisherId;
     private Publisher publisher;
@@ -43,15 +43,6 @@ public class Users implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`name`", nullable = false, length = 255)
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Column(name = "`email`", nullable = false, length = 255)
     public String getEmail() {
         return this.email;
@@ -59,6 +50,15 @@ public class Users implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Column(name = "`name`", nullable = false, length = 255)
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Column(name = "`password`", nullable = false, length = 255)

@@ -30,8 +30,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class DeviceDictionary implements Serializable {
 
     private Integer id;
-    private String deviceType;
     private String deviceName;
+    private String deviceType;
     private List<StatsDays> statsDayses;
 
     @Id
@@ -45,15 +45,6 @@ public class DeviceDictionary implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`device_type`", nullable = false, length = 255)
-    public String getDeviceType() {
-        return this.deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
-
     @Column(name = "`device_name`", nullable = false, length = 255)
     public String getDeviceName() {
         return this.deviceName;
@@ -61,6 +52,15 @@ public class DeviceDictionary implements Serializable {
 
     public void setDeviceName(String deviceName) {
         this.deviceName = deviceName;
+    }
+
+    @Column(name = "`device_type`", nullable = false, length = 255)
+    public String getDeviceType() {
+        return this.deviceType;
+    }
+
+    public void setDeviceType(String deviceType) {
+        this.deviceType = deviceType;
     }
 
     @JsonInclude(Include.NON_EMPTY)

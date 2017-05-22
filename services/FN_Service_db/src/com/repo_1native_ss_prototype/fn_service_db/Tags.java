@@ -32,14 +32,15 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Tags implements Serializable {
 
     private Integer id;
-    private String type;
-    private int status;
     private float price;
-    private String testUrl;
     private Integer publisherId;
     private Integer siteId;
-    private Publisher publisher;
+    private int status;
+    private String testUrl;
+    private String type;
+    private String name;
     private Sites sites;
+    private Publisher publisher;
     private List<StatsDays> statsDayses;
 
     @Id
@@ -53,40 +54,13 @@ public class Tags implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`type`", nullable = false, length = 255)
-    public String getType() {
-        return this.type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Column(name = "`status`", nullable = false, scale = 0, precision = 10)
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    @Column(name = "`price`", nullable = false, scale = 2, precision = 10)
+    @Column(name = "`price`", nullable = false, scale = 4, precision = 12)
     public float getPrice() {
         return this.price;
     }
 
     public void setPrice(float price) {
         this.price = price;
-    }
-
-    @Column(name = "`test_url`", nullable = true, length = 255)
-    public String getTestUrl() {
-        return this.testUrl;
-    }
-
-    public void setTestUrl(String testUrl) {
-        this.testUrl = testUrl;
     }
 
     @Column(name = "`publisher_id`", nullable = true, scale = 0, precision = 10)
@@ -107,18 +81,40 @@ public class Tags implements Serializable {
         this.siteId = siteId;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`publisher_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
-    public Publisher getPublisher() {
-        return this.publisher;
+    @Column(name = "`status`", nullable = false, scale = 0, precision = 10)
+    public int getStatus() {
+        return this.status;
     }
 
-    public void setPublisher(Publisher publisher) {
-        if(publisher != null) {
-            this.publisherId = publisher.getId();
-        }
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
-        this.publisher = publisher;
+    @Column(name = "`test_url`", nullable = true, length = 255)
+    public String getTestUrl() {
+        return this.testUrl;
+    }
+
+    public void setTestUrl(String testUrl) {
+        this.testUrl = testUrl;
+    }
+
+    @Column(name = "`type`", nullable = false, length = 255)
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Column(name = "`name`", nullable = true, length = 255)
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -133,6 +129,20 @@ public class Tags implements Serializable {
         }
 
         this.sites = sites;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`publisher_id`", referencedColumnName = "`ID`", insertable = false, updatable = false)
+    public Publisher getPublisher() {
+        return this.publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        if(publisher != null) {
+            this.publisherId = publisher.getId();
+        }
+
+        this.publisher = publisher;
     }
 
     @JsonInclude(Include.NON_EMPTY)

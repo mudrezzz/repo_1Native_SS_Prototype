@@ -26,14 +26,14 @@ import javax.persistence.Table;
 public class PubPaymentHistory implements Serializable {
 
     private Integer id;
+    private float _1nComission;
+    private float balanceAfter;
+    private float balanceBefore;
+    private String documentRef;
     private int publisherId;
+    private float summ;
     private String transactionName;
     private int type;
-    private float summ;
-    private float balanceBefore;
-    private float balanceAfter;
-    private float _1nComission;
-    private String documentRef;
     private Publisher publisher;
 
     @Id
@@ -47,6 +47,42 @@ public class PubPaymentHistory implements Serializable {
         this.id = id;
     }
 
+    @Column(name = "`1n_comission`", nullable = false, scale = 4, precision = 12)
+    public float get_1nComission() {
+        return this._1nComission;
+    }
+
+    public void set_1nComission(float _1nComission) {
+        this._1nComission = _1nComission;
+    }
+
+    @Column(name = "`balance_after`", nullable = false, scale = 4, precision = 12)
+    public float getBalanceAfter() {
+        return this.balanceAfter;
+    }
+
+    public void setBalanceAfter(float balanceAfter) {
+        this.balanceAfter = balanceAfter;
+    }
+
+    @Column(name = "`balance_before`", nullable = false, scale = 4, precision = 12)
+    public float getBalanceBefore() {
+        return this.balanceBefore;
+    }
+
+    public void setBalanceBefore(float balanceBefore) {
+        this.balanceBefore = balanceBefore;
+    }
+
+    @Column(name = "`document_ref`", nullable = false, length = 255)
+    public String getDocumentRef() {
+        return this.documentRef;
+    }
+
+    public void setDocumentRef(String documentRef) {
+        this.documentRef = documentRef;
+    }
+
     @Column(name = "`publisher_id`", nullable = false, scale = 0, precision = 10)
     public int getPublisherId() {
         return this.publisherId;
@@ -54,6 +90,15 @@ public class PubPaymentHistory implements Serializable {
 
     public void setPublisherId(int publisherId) {
         this.publisherId = publisherId;
+    }
+
+    @Column(name = "`summ`", nullable = false, scale = 4, precision = 12)
+    public float getSumm() {
+        return this.summ;
+    }
+
+    public void setSumm(float summ) {
+        this.summ = summ;
     }
 
     @Column(name = "`transaction_name`", nullable = false, length = 255)
@@ -72,51 +117,6 @@ public class PubPaymentHistory implements Serializable {
 
     public void setType(int type) {
         this.type = type;
-    }
-
-    @Column(name = "`summ`", nullable = false, scale = 2, precision = 10)
-    public float getSumm() {
-        return this.summ;
-    }
-
-    public void setSumm(float summ) {
-        this.summ = summ;
-    }
-
-    @Column(name = "`balance_before`", nullable = false, scale = 2, precision = 10)
-    public float getBalanceBefore() {
-        return this.balanceBefore;
-    }
-
-    public void setBalanceBefore(float balanceBefore) {
-        this.balanceBefore = balanceBefore;
-    }
-
-    @Column(name = "`balance_after`", nullable = false, scale = 2, precision = 10)
-    public float getBalanceAfter() {
-        return this.balanceAfter;
-    }
-
-    public void setBalanceAfter(float balanceAfter) {
-        this.balanceAfter = balanceAfter;
-    }
-
-    @Column(name = "`1n_comission`", nullable = false, scale = 2, precision = 10)
-    public float get_1nComission() {
-        return this._1nComission;
-    }
-
-    public void set_1nComission(float _1nComission) {
-        this._1nComission = _1nComission;
-    }
-
-    @Column(name = "`document_ref`", nullable = false, length = 255)
-    public String getDocumentRef() {
-        return this.documentRef;
-    }
-
-    public void setDocumentRef(String documentRef) {
-        this.documentRef = documentRef;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

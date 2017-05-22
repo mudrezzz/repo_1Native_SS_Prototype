@@ -32,14 +32,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Ads implements Serializable {
 
     private Integer id;
-    private String title;
-    private String text;
-    private String logoUrl;
     private String brandName;
-    private String smallThumbnailUrl;
-    private String largeThumbnailUrl;
     private Integer campaignId;
+    private String largeThumbnailUrl;
+    private String logoUrl;
+    private String smallThumbnailUrl;
     private Integer status;
+    private String text;
+    private String title;
     private Campaign campaign;
     private List<StatsDays> statsDayses;
 
@@ -54,33 +54,6 @@ public class Ads implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`title`", nullable = false, length = 255)
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Column(name = "`text`", nullable = false, length = 255)
-    public String getText() {
-        return this.text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Column(name = "`logo_url`", nullable = false, length = 255)
-    public String getLogoUrl() {
-        return this.logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
     @Column(name = "`brand_name`", nullable = false, length = 255)
     public String getBrandName() {
         return this.brandName;
@@ -88,24 +61,6 @@ public class Ads implements Serializable {
 
     public void setBrandName(String brandName) {
         this.brandName = brandName;
-    }
-
-    @Column(name = "`small_thumbnail_url`", nullable = true, length = 255)
-    public String getSmallThumbnailUrl() {
-        return this.smallThumbnailUrl;
-    }
-
-    public void setSmallThumbnailUrl(String smallThumbnailUrl) {
-        this.smallThumbnailUrl = smallThumbnailUrl;
-    }
-
-    @Column(name = "`large_thumbnail_url`", nullable = true, length = 255)
-    public String getLargeThumbnailUrl() {
-        return this.largeThumbnailUrl;
-    }
-
-    public void setLargeThumbnailUrl(String largeThumbnailUrl) {
-        this.largeThumbnailUrl = largeThumbnailUrl;
     }
 
     @Column(name = "`campaign_id`", nullable = true, scale = 0, precision = 10)
@@ -117,6 +72,33 @@ public class Ads implements Serializable {
         this.campaignId = campaignId;
     }
 
+    @Column(name = "`large_thumbnail_url`", nullable = true, length = 255)
+    public String getLargeThumbnailUrl() {
+        return this.largeThumbnailUrl;
+    }
+
+    public void setLargeThumbnailUrl(String largeThumbnailUrl) {
+        this.largeThumbnailUrl = largeThumbnailUrl;
+    }
+
+    @Column(name = "`logo_url`", nullable = false, length = 255)
+    public String getLogoUrl() {
+        return this.logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
+    }
+
+    @Column(name = "`small_thumbnail_url`", nullable = true, length = 255)
+    public String getSmallThumbnailUrl() {
+        return this.smallThumbnailUrl;
+    }
+
+    public void setSmallThumbnailUrl(String smallThumbnailUrl) {
+        this.smallThumbnailUrl = smallThumbnailUrl;
+    }
+
     @Column(name = "`status`", nullable = true, scale = 0, precision = 10)
     public Integer getStatus() {
         return this.status;
@@ -124,6 +106,24 @@ public class Ads implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Column(name = "`text`", nullable = false, length = 255)
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Column(name = "`title`", nullable = false, length = 255)
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
