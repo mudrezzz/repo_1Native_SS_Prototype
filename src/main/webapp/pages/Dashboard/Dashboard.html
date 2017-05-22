@@ -25,8 +25,8 @@
                                         <wm-icon name="globeIcon" iconclass="wi wi-globe fa-3x"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn12" class="col-xs-9" padding="unset unset unset 1em">
-                                        <wm-label name="newVisitLabel" width="100%" caption="New Visits" class="text-uppercase p"></wm-label>
-                                        <wm-label width="100%" name="newVistValueLabel" caption="221" class="h3 p" margin="0px" color="#ffffff"></wm-label>
+                                        <wm-label name="newVisitLabel" width="100%" caption="ПОКАЗОВ" class="text-uppercase p"></wm-label>
+                                        <wm-label width="100%" name="newVistValueLabel" caption="221" class="h1 p" margin="0px" color="#ffffff"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -40,8 +40,8 @@
                                         <wm-icon name="usdLabel" iconclass="wi wi-usd fa-3x"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn21" class="col-xs-9" padding="unset unset unset 1em">
-                                        <wm-label width="100%" caption="Total Revenue" class="text-uppercase" name="revenueLabel"></wm-label>
-                                        <wm-label width="100%" caption="221" class="h3" name="revenueValueLabel" margin="0px" color="#ffffff"></wm-label>
+                                        <wm-label width="100%" caption="КЛИКОВ" class="text-uppercase" name="revenueLabel"></wm-label>
+                                        <wm-label width="100%" caption="2" class="h1" name="revenueValueLabel" margin="0px" color="#ffffff"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -55,8 +55,8 @@
                                         <wm-icon name="userIcon" iconclass="wi wi-user fa-3x"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn23" class="col-xs-9" padding="unset unset unset 1em">
-                                        <wm-label width="100%" caption="Outpatients" class="text-uppercase" name="outpatientsLabel"></wm-label>
-                                        <wm-label width="100%" caption="221" class="h3" name="outpatientsValueLabel" margin="0px" color="#ffffff"></wm-label>
+                                        <wm-label width="100%" caption="КОНВЕРСИЙ" class="text-uppercase" name="outpatientsLabel"></wm-label>
+                                        <wm-label width="100%" caption="221" class="h1" name="outpatientsValueLabel" margin="0px" color="#ffffff"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -70,8 +70,8 @@
                                         <wm-icon name="checkIcon" iconclass="wi wi-check fa-3x"></wm-icon>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn25" class="col-xs-9" padding="unset unset unset 1em">
-                                        <wm-label width="100%" caption="Admissions" class="text-uppercase" name="admissionsLabel"></wm-label>
-                                        <wm-label width="100%" caption="221" class="h3" name="admissionsValueLabel" margin="0px" color="#ffffff"></wm-label>
+                                        <wm-label width="100%" caption="БЮДЖЕТ" class="text-uppercase" name="admissionsLabel"></wm-label>
+                                        <wm-label width="100%" caption="221 230" class="h1" name="admissionsValueLabel" margin="0px" color="#ffffff"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -82,6 +82,13 @@
                     <wm-gridcolumn columnwidth="12" name="gridcolumn33_1" padding="1em .5em">
                         <wm-chart type="Cumulative Line" title="Динамика за последние 7 дней" height="350px" iconclass="wi wi-line-chart" name="chart3" theme="Azure" showlegend="bottom" highlightpoints="true" scopedataset="test" dataset="bind:Variables.FN_Service_dbStatsDaysData.dataSet"
                         orderby="date:asc" xdateformat="%x" xaxisdatakey="date" yaxisdatakey="clicks,impressions,summ" linethickness="2px" interpolation="cardinal" xaxislabel="Дата" ynumberformat=".0f" yaxislabel="Значения" yaxislabeldistance="10"></wm-chart>
+                        <wm-grid title="Текущие кампании" dataset="bind:Variables.FN_Service_dbCampaignData.dataSet" navigation="None" name="grid1">
+                            <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                            <wm-grid-column binding="dateFrom" caption="Date From" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                            <wm-grid-column binding="dateTo" caption="Date To" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                            <wm-grid-column binding="budget" caption="Budget" generator="assigned" pcdisplay="true" mobiledisplay="true" type="float"></wm-grid-column>
+                            <wm-grid-column binding="price" caption="Price" generator="assigned" pcdisplay="true" mobiledisplay="true" type="float"></wm-grid-column>
+                        </wm-grid>
                         <wm-livegrid name="patientsLivegrid" service="hrdb@User"></wm-livegrid>
                     </wm-gridcolumn>
                 </wm-gridrow>
