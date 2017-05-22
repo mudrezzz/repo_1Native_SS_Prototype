@@ -2,4 +2,23 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="stats_by_days">
+        <![CDATA[
+        select date, sum(summ), sum(impressions), sum(clicks)
+from STATS_DAYS
+where date > curdate() - :period
+group by date
+        ]]>
+    <query-param name="period" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="stats_by_days__count">
+        <![CDATA[
+        select count(*) from (select date, sum(summ), sum(impressions), sum(clicks)
+from STATS_DAYS
+where date > curdate() - :period
+group by date) wmTempTable
+        ]]>
+    <query-param name="period" type="java.lang.Integer"/>
+    </sql-query>
 </hibernate-mapping>

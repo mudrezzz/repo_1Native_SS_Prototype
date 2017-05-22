@@ -1,1 +1,67 @@
-{ }
+{
+  "stats_by_days" : {
+    "name" : "stats_by_days",
+    "description" : "stats by days",
+    "version" : "V2",
+    "queryString" : "select date, sum(summ), sum(impressions), sum(clicks)\nfrom STATS_DAYS\nwhere date > curdate() - :period\ngroup by date",
+    "countQueryString" : "select count(*) from (select date, sum(summ), sum(impressions), sum(clicks)\nfrom STATS_DAYS\nwhere date > curdate() - :period\ngroup by date) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "period",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "2",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "response" : {
+      "typeRef" : "com.repo_1native_ss_prototype.fn_service_db.models.query.StatsByDaysResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "date",
+        "fieldName" : "date",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "sum(summ)",
+        "fieldName" : "sum_summ_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Double",
+          "list" : false
+        }
+      }, {
+        "name" : "sum(impressions)",
+        "fieldName" : "sum_impressions_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "sum(clicks)",
+        "fieldName" : "sum_clicks_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

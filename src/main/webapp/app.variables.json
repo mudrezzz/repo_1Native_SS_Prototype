@@ -1145,7 +1145,7 @@
       "primaryFields" : [ "id" ]
     },
     "isDefault" : true,
-    "bindCount" : 2,
+    "bindCount" : 3,
     "tableName" : "STATS_DAYS",
     "tableType" : "TABLE",
     "properties" : [ "campaign", "ads", "browserDictionary", "osDictionary", "deviceDictionary", "tags" ],
@@ -1280,6 +1280,32 @@
     "transformationRequired" : false,
     "redirectTo" : "Login",
     "useDefaultSuccessHandler" : true
+  },
+  "serviceVariable2" : {
+    "_id" : "wm-serviceVariable2-wm.ServiceVariable-1495487420512",
+    "name" : "serviceVariable2",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "period",
+      "value" : "3",
+      "type" : "integer"
+    } ],
+    "type" : "com.repo_1native_ss_prototype.fn_service_db.models.query.StatsByDaysResponse",
+    "service" : "FN_Service_db",
+    "operation" : "executeStats_by_days",
+    "operationId" : "QueryExecutionController_executeStats_by_days",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",
