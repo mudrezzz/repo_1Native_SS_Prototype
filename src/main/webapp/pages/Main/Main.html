@@ -3,7 +3,343 @@
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
         <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+        <wm-page-content columnwidth="8" name="mainContent" padding="unset 15px">
+            <wm-container name="container1">
+                <wm-grid editmode="inline" title="Publisher List" dataset="bind:Variables.FN_Service_dbPublisherData.dataSet" navigation="Basic" name="grid1">
+                    <wm-grid-column binding="balance" caption="Balance" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" required="true" defaultvalue="0"></wm-grid-column>
+                    <wm-grid-column binding="_1nComission" caption="1 N Comission" generator="assigned" pcdisplay="true" mobiledisplay="true" type="float" required="true" defaultvalue="30"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container2">
+                <wm-grid editmode="inline" title="Users List" dataset="bind:Variables.FN_Service_dbUsersData.dataSet" navigation="Basic" name="grid2">
+                    <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true" defaultvalue="username"></wm-grid-column>
+                    <wm-grid-column binding="email" caption="Email" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true"></wm-grid-column>
+                    <wm-grid-column binding="password" caption="Password" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true"></wm-grid-column>
+                    <wm-grid-column binding="publisher.id" widget-type="anchor" caption="Publisher Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Publisher">
+                        <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                    </wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container3">
+                <wm-grid editmode="inline" title="Advertiser List" dataset="bind:Variables.FN_Service_dbAdvertiserData.dataSet" navigation="Basic" name="grid3">
+                    <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="description" caption="Description" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="balance" caption="Balance" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer" required="true" defaultvalue="0"></wm-grid-column>
+                    <wm-grid-column binding="publisher.id" widget-type="anchor" caption="Publisher Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Publisher">
+                        <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                    </wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container4">
+                <wm-livegrid formlayout="dialog" name="livegrid3">
+                    <wm-grid gridfirstrowselect="true" editmode="dialog" title="Sites List" dataset="bind:Variables.FN_Service_dbSitesData.dataSet" navigation="Basic" name="grid13">
+                        <wm-grid-column binding="domain" caption="Domain" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                        <wm-grid-column binding="publisher.id" widget-type="anchor" caption="Publisher Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Publisher">
+                            <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                        </wm-grid-column>
+                        <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                        <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                        <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                    </wm-grid>
+                    <wm-liveform novalidate="false" errormessage="" title="Sites Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.FN_Service_dbSitesData.dataSet" captionalign="left" captionposition="top" name="liveform3">
+                        <wm-layoutgrid columns="1" name="layoutgrid3">
+                            <wm-gridrow name="gridrow14">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn31">
+                                    <wm-form-field name="domain" displayname="Domain" required="false" show="true" generator="assigned" primary-key="false" key="domain" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                    widget="text"></wm-form-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow15">
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                    <wm-form-field name="publisher" displayname="Publisher" required="false" show="true" generator="assigned" primary-key="false" key="publisher" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                        <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                        <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                    </wm-liveform>
+                </wm-livegrid>
+            </wm-container>
+            <wm-container name="container12"></wm-container>
+            <wm-grid editmode="quickedit" title="Sites List" dataset="bind:Variables.FN_Service_dbSitesData.dataSet" navigation="Basic" name="grid4">
+                <wm-grid-column binding="domain" caption="Domain" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                <wm-grid-column binding="publisher.id" widget-type="anchor" caption="Publisher Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Publisher">
+                    <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                </wm-grid-column>
+                <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+            </wm-grid>
+            <wm-container name="container5"></wm-container>
+            <wm-livegrid formlayout="dialog" name="livegrid1">
+                <wm-grid gridfirstrowselect="true" editmode="dialog" title="Campaign List" dataset="bind:Variables.FN_Service_dbCampaignData.dataSet" navigation="Basic" name="grid6">
+                    <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Status" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
+                    <wm-grid-column binding="dateFrom" caption="Date From" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                    <wm-grid-column binding="dateTo" caption="Date To" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
+                    <wm-grid-column binding="freqPerHour" caption="Freq Per Hour" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
+                    <wm-grid-column binding="freqPerDay" caption="Freq Per Day" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
+                    <wm-grid-column binding="freqPerWeek" caption="Freq Per Week" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
+                    <wm-grid-column binding="keywordsJson" caption="Keywords Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="browsersJson" caption="Browsers Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="osJson" caption="Os Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="daysJson" caption="Days Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="hoursJson" caption="Hours Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="budget" caption="Budget" generator="assigned" pcdisplay="true" mobiledisplay="true" type="float"></wm-grid-column>
+                    <wm-grid-column binding="price" caption="Price" generator="assigned" pcdisplay="true" mobiledisplay="true" type="float"></wm-grid-column>
+                    <wm-grid-column binding="priceType" caption="Price Type" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
+                    <wm-grid-column binding="geoJson" caption="Geo Json" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
+                    <wm-grid-column binding="advId" widget-type="anchor" caption="Adv Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer">
+                        <wm-anchor caption="{{row.getProperty('advId')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                    </wm-grid-column>
+                    <wm-grid-column binding="publisher.id" widget-type="anchor" caption="Publisher Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" related-entity-name="Publisher">
+                        <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                    </wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+                <wm-liveform novalidate="false" errormessage="" title="Campaign Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.FN_Service_dbCampaignData.dataSet" captionalign="left" captionposition="top" name="liveform1">
+                    <wm-layoutgrid columns="2" name="layoutgrid1">
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn2">
+                                <wm-form-field name="status" displayname="Status" required="true" show="true" generator="assigned" primary-key="false" key="status" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                                <wm-form-field name="dateFrom" displayname="Date From" required="true" show="true" generator="assigned" primary-key="false" key="dateFrom" type="date" is-related="false" defaultvalue="2017-05-22" pc-display="true" mobile-display="true"
+                                widget="date"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn4">
+                                <wm-form-field name="dateTo" displayname="Date To" required="true" show="true" generator="assigned" primary-key="false" key="dateTo" type="date" is-related="false" defaultvalue="2017-05-22" pc-display="true" mobile-display="true"
+                                widget="date"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow3">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                                <wm-form-field name="freqPerHour" displayname="Freq Per Hour" required="false" show="true" generator="assigned" primary-key="false" key="freqPerHour" type="integer" is-related="false" defaultvalue="2" step="0" pc-display="true"
+                                mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn6">
+                                <wm-form-field name="freqPerDay" displayname="Freq Per Day" required="false" show="true" generator="assigned" primary-key="false" key="freqPerDay" type="integer" is-related="false" defaultvalue="5" step="0" pc-display="true"
+                                mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn7">
+                                <wm-form-field name="freqPerWeek" displayname="Freq Per Week" required="false" show="true" generator="assigned" primary-key="false" key="freqPerWeek" type="integer" is-related="false" defaultvalue="5" step="0" pc-display="true"
+                                mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn8">
+                                <wm-form-field name="keywordsJson" displayname="Keywords Json" required="false" show="true" generator="assigned" primary-key="false" key="keywordsJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow5">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn9">
+                                <wm-form-field name="browsersJson" displayname="Browsers Json" required="false" show="true" generator="assigned" primary-key="false" key="browsersJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn10">
+                                <wm-form-field name="osJson" displayname="Os Json" required="false" show="true" generator="assigned" primary-key="false" key="osJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn11">
+                                <wm-form-field name="daysJson" displayname="Days Json" required="false" show="true" generator="assigned" primary-key="false" key="daysJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn12">
+                                <wm-form-field name="hoursJson" displayname="Hours Json" required="false" show="true" generator="assigned" primary-key="false" key="hoursJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow7">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn13">
+                                <wm-form-field name="budget" displayname="Budget" required="true" show="true" generator="assigned" primary-key="false" key="budget" type="float" is-related="false" defaultvalue="100000" step="0.01" pc-display="true" mobile-display="true"
+                                widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn14">
+                                <wm-form-field name="price" displayname="Price" required="true" show="true" generator="assigned" primary-key="false" key="price" type="float" is-related="false" defaultvalue="100" step="0.1" pc-display="true" mobile-display="true"
+                                widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow8">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn15">
+                                <wm-form-field name="priceType" displayname="Price Type" required="true" show="true" generator="assigned" primary-key="false" key="priceType" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn16">
+                                <wm-form-field name="geoJson" displayname="Geo Json" required="false" show="true" generator="assigned" primary-key="false" key="geoJson" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow9">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn17">
+                                <wm-form-field name="advId" displayname="Adv Id" required="false" show="true" generator="assigned" primary-key="false" key="advId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn18">
+                                <wm-form-field name="publisher" displayname="Publisher" required="true" show="true" generator="assigned" primary-key="false" key="publisher" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livegrid>
+            <wm-container name="container6">
+                <wm-grid editmode="inline" title="Ads List" dataset="bind:Variables.FN_Service_dbAdsData.dataSet" navigation="Basic" name="grid7">
+                    <wm-grid-column binding="title" caption="Title" type="string" generator="assigned" edit-widget-type="text" defaultvalue="title" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="text" caption="Text" type="string" generator="assigned" edit-widget-type="text" defaultvalue="text" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="logoUrl" caption="Logo Url" type="string" generator="assigned" edit-widget-type="text" defaultvalue="/" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="brandName" caption="Brand Name" type="string" generator="assigned" edit-widget-type="text" defaultvalue="brand" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="smallThumbnailUrl" caption="Small Thumbnail Url" type="string" generator="assigned" edit-widget-type="text" defaultvalue="/" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="largeThumbnailUrl" caption="Large Thumbnail Url" type="string" generator="assigned" edit-widget-type="text" defaultvalue="/" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Status" type="integer" generator="assigned" edit-widget-type="number" defaultvalue="0" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="campaign.id" caption="Campaign Id" type="integer" primary-key="true" generator="identity" edit-widget-type="select" datafield="id" displayfield="id" show="true" related-entity-name="Campaign"
+                    readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" sortable="false" searchable="false" show="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+                    <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                    <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                </wm-grid>
+                <wm-container name="container7">
+                    <wm-grid editmode="quickedit" title="Browser_dictionary List" dataset="bind:Variables.FN_Service_dbBrowserDictionaryData.dataSet" navigation="Basic" name="grid8">
+                        <wm-grid-column binding="browser" caption="Browser" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true" defaultvalue="Firefox"></wm-grid-column>
+                        <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                        <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                    </wm-grid>
+                </wm-container>
+            </wm-container>
+            <wm-container name="container8">
+                <wm-grid editmode="quickedit" title="Os_dictionary List" dataset="bind:Variables.FN_Service_dbOsDictionaryData.dataSet" navigation="Basic" name="grid9">
+                    <wm-grid-column binding="os" caption="Os" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container9">
+                <wm-grid editmode="quickedit" title="Device_dictionary List" dataset="bind:Variables.FN_Service_dbDeviceDictionaryData.dataSet" navigation="Basic" name="grid10">
+                    <wm-grid-column binding="deviceType" caption="Device Type" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true"></wm-grid-column>
+                    <wm-grid-column binding="deviceName" caption="Device Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string" required="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-grid-action>
+                    <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container10">
+                <wm-grid editmode="quickedit" title="Tags List" dataset="bind:Variables.FN_Service_dbTagsData.dataSet" navigation="Basic" name="grid11">
+                    <wm-grid-column binding="type" caption="Type" type="string" generator="assigned" edit-widget-type="text" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="status" caption="Status" type="integer" generator="assigned" edit-widget-type="number" defaultvalue="0" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="price" caption="Price" type="float" generator="assigned" edit-widget-type="number" defaultvalue="100" show="true" readonly="false" required="true"></wm-grid-column>
+                    <wm-grid-column binding="testUrl" caption="Test Url" type="string" generator="assigned" edit-widget-type="text" defaultvalue="/" show="true" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="publisher.id" caption="Publisher Id" type="integer" widget-type="anchor" primary-key="true" generator="identity" edit-widget-type="select" show="true" related-entity-name="Publisher" readonly="false">
+                        <wm-anchor caption="{{row.getProperty('publisher.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                    </wm-grid-column>
+                    <wm-grid-column binding="sites.id" caption="Sites Id" type="integer" primary-key="true" generator="identity" edit-widget-type="select" datafield="id" displayfield="id" show="true" related-entity-name="Sites" readonly="false"></wm-grid-column>
+                    <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" sortable="false" searchable="false" show="true"></wm-grid-column>
+                    <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+                    <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                </wm-grid>
+            </wm-container>
+            <wm-container name="container11">
+                <wm-livegrid formlayout="dialog" name="livegrid2">
+                    <wm-grid gridfirstrowselect="true" editmode="dialog" title="Stats_days List" dataset="bind:Variables.FN_Service_dbStatsDaysData.dataSet" navigation="Basic" name="grid12">
+                        <wm-grid-column binding="date" caption="Date" type="date" generator="assigned" edit-widget-type="date" show="true" readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="summ" caption="Summ" type="float" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="impressions" caption="Impressions" type="integer" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="clicks" caption="Clicks" type="integer" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="conversions" caption="Conversions" type="integer" generator="assigned" edit-widget-type="number" show="true" readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="tags.id" caption="Tags Id" type="integer" widget-type="anchor" primary-key="true" generator="identity" edit-widget-type="select" show="true" related-entity-name="Tags" readonly="false">
+                            <wm-anchor caption="{{row.getProperty('tags.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                        </wm-grid-column>
+                        <wm-grid-column binding="osDictionary.id" caption="Dictionary Id" type="integer" widget-type="anchor" primary-key="true" generator="identity" edit-widget-type="select" show="true" related-entity-name="OsDictionary" readonly="false">
+                            <wm-anchor caption="{{row.getProperty('osDictionary.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                        </wm-grid-column>
+                        <wm-grid-column binding="ads.id" caption="Ads Id" type="integer" widget-type="anchor" primary-key="true" generator="identity" edit-widget-type="select" show="true" related-entity-name="Ads" readonly="false">
+                            <wm-anchor caption="{{row.getProperty('ads.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                        </wm-grid-column>
+                        <wm-grid-column binding="deviceDictionary.id" caption="Dictionary Id" type="integer" widget-type="anchor" primary-key="true" generator="identity" edit-widget-type="select" show="true" related-entity-name="DeviceDictionary" readonly="false">
+                            <wm-anchor caption="{{row.getProperty('deviceDictionary.id')}}" hyperlink="" class="" data-ng-class=""></wm-anchor>
+                        </wm-grid-column>
+                        <wm-grid-column binding="tags.siteId" caption="Site Id" type="integer" primary-key="false" generator="assigned" readonly="true" edit-widget-type="number" show="true" related-entity-name="Tags"></wm-grid-column>
+                        <wm-grid-column binding="campaign.id" caption="Campaign Id" type="integer" primary-key="true" generator="identity" edit-widget-type="select" datafield="id" displayfield="id" show="true" related-entity-name="Campaign"
+                        readonly="false"></wm-grid-column>
+                        <wm-grid-column binding="rowOperations" caption="Actions" type="custom" width="120px" readonly="true" sortable="false" searchable="false" show="true"></wm-grid-column>
+                        <wm-grid-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false"></wm-grid-action>
+                        <wm-grid-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-grid-row-action>
+                        <wm-grid-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-grid-row-action>
+                    </wm-grid>
+                    <wm-liveform novalidate="false" errormessage="" title="Stats_days Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.FN_Service_dbStatsDaysData.dataSet" captionalign="left" captionposition="top" name="liveform2">
+                        <wm-layoutgrid columns="3" name="layoutgrid2">
+                            <wm-gridrow name="gridrow10">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                                    <wm-form-field name="date" displayname="Date" required="true" show="true" generator="assigned" primary-key="false" key="date" type="date" is-related="false" defaultvalue="2017-05-22" pc-display="true" mobile-display="true"
+                                    widget="date"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                                    <wm-form-field name="summ" displayname="Summ" required="true" show="true" generator="assigned" primary-key="false" key="summ" type="float" is-related="false" step="0.01" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn21">
+                                    <wm-form-field name="impressions" displayname="Impressions" required="true" show="true" generator="assigned" primary-key="false" key="impressions" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                    widget="number"></wm-form-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow11">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                                    <wm-form-field name="clicks" displayname="Clicks" required="true" show="true" generator="assigned" primary-key="false" key="clicks" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn23">
+                                    <wm-form-field name="conversions" displayname="Conversions" required="true" show="true" generator="assigned" primary-key="false" key="conversions" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                    widget="number"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn24">
+                                    <wm-form-field name="tags" displayname="Tags" required="true" show="true" generator="assigned" primary-key="false" key="tags" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow12">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn25">
+                                    <wm-form-field name="osDictionary" displayname="Os Dictionary" required="false" show="true" generator="assigned" primary-key="false" key="osDictionary" type="list" is-related="true" pc-display="true" mobile-display="true"
+                                    widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn26">
+                                    <wm-form-field name="campaign" displayname="Campaign" required="true" show="true" generator="assigned" primary-key="false" key="campaign" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn27">
+                                    <wm-form-field name="browserDictionary" displayname="Browser Dictionary" required="false" show="true" generator="assigned" primary-key="false" key="browserDictionary" type="list" is-related="true" pc-display="true" mobile-display="true"
+                                    widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow13">
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn28">
+                                    <wm-form-field name="ads" displayname="Ads" required="true" show="true" generator="assigned" primary-key="false" key="ads" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn29">
+                                    <wm-form-field name="deviceDictionary" displayname="Device Dictionary" required="false" show="true" generator="assigned" primary-key="false" key="deviceDictionary" type="list" is-related="true" pc-display="true" mobile-display="true"
+                                    widget="select"></wm-form-field>
+                                </wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="4" name="gridcolumn30"></wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                        <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                        <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                        <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                    </wm-liveform>
+                </wm-livegrid>
+            </wm-container>
         </wm-page-content>
         <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
     </wm-content>

@@ -1,12 +1,12 @@
 var _WM_APP_PROPERTIES = {
   "activeTheme" : "material",
   "dateFormat" : "",
-  "defaultLanguage" : "en",
+  "defaultLanguage" : "ru-ru",
   "displayName" : "1Native SS Prototype",
   "homePage" : "Main",
   "name" : "repo_1Native_SS_Prototype",
   "platformType" : "WEB",
-  "supportedLanguages" : "en",
+  "supportedLanguages" : "en,ru-ru",
   "timeFormat" : "",
   "type" : "APPLICATION",
   "version" : "1.0"
