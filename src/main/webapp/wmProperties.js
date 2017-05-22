@@ -3,7 +3,7 @@ var _WM_APP_PROPERTIES = {
   "dateFormat" : "",
   "defaultLanguage" : "ru-ru",
   "displayName" : "1Native SS Prototype",
-  "homePage" : "Main",
+  "homePage" : "Dashboard",
   "name" : "repo_1Native_SS_Prototype",
   "platformType" : "WEB",
   "supportedLanguages" : "en,ru-ru",

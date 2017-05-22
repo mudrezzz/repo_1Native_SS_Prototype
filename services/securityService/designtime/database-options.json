@@ -1,0 +1,19 @@
+{
+  "modelName" : "FN_Service_db",
+  "entityName" : "Users",
+  "tableName" : "USERS",
+  "unamePropertyName" : "name",
+  "unameColumnName" : "name",
+  "uidPropertyName" : "id",
+  "uidColumnName" : "ID",
+  "pwPropertyName" : "password",
+  "pwColumnName" : "password",
+  "rolePropertyName" : "",
+  "roleColumnName" : "",
+  "useRolesQuery" : false,
+  "rolesByUsernameQuery" : "",
+  "tenantIdField" : null,
+  "defTenantId" : 0,
+  "tenantIdPropertyName" : null,
+  "queryType" : "HQL"
+}
