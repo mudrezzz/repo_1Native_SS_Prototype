@@ -1,0 +1,108 @@
+<wm-page data-ng-controller="SettingsPageController" name="page1" pagetitle="Настройка кампании">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-container name="container1">
+                <wm-breadcrumb dataset="Home, Page" name="breadcrumb1"></wm-breadcrumb>
+            </wm-container>
+            <wm-form errormessage="" captionposition="top" title="" enctype="application/x-www-form-urlencoded" method="post" dataset="bind:Variables.FN_Service_dbCreateCampaign.dataSet" captionalign="left" name="form2">
+                <wm-layoutgrid columns="2" name="layoutgrid4">
+                    <wm-gridrow name="gridrow10_1">
+                        <wm-gridcolumn columnwidth="11" name="gridcolumn20_1">
+                            <wm-label padding="unset 0.5em" name="label1" caption="Настройка Новой Кампании"></wm-label>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="1" name="gridcolumn21_1" horizontalalign="right">
+                            <wm-menu caption="#" autoclose="outsideClick" name="menu1" textalign="right" backgroundposition="right" dataset="Сохранить, Запустить, Остановить, Удалить" menuposition="down,left"></wm-menu>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-layoutgrid columns="3" name="layoutgrid2">
+                    <wm-gridrow name="gridrow8"></wm-gridrow>
+                    <wm-gridrow name="gridrow9">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                            <wm-form-field readonly="false" name="Campaign_advId" displayname="Рекламодатель" key="Campaign.advId" type="integer" show="true" widget="select" dataset="bind:Variables.liveVariable2.dataSet" datafield="id" displayfield="name"
+                            placeholder="Выбрать..." defaultvalue="1"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                            <wm-form-field readonly="false" name="Campaign_browsersJson" displayname="Браузеры" key="Campaign.browsersJson" type="string" show="true" widget="chips" dataset="bind:Variables.liveVariable1.dataSet" datafield="id" displayfield="browser"
+                            orderby="browser:desc" defaultvalue="Firefox, IE" placeholder=""></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn21">
+                            <wm-form-field readonly="false" name="Campaign_budget" displayname="Бюджет" key="Campaign.budget" type="float" show="true" widget="number" placeholder="100000" defaultvalue="100000" required="true"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow10">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                            <wm-form-field readonly="false" name="Campaign_dateFrom" displayname="Дата старта" key="Campaign.dateFrom" type="date" show="true" widget="date" defaultvalue="CURRENT_DATE"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn23">
+                            <wm-form-field readonly="false" name="Campaign_dateTo" displayname="Дата окончания" key="Campaign.dateTo" type="date" show="true" widget="date" defaultvalue="CURRENT_DATE"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn24">
+                            <wm-form-field readonly="false" name="Campaign_daysJson" displayname="Дни" key="Campaign.daysJson" type="string" show="true" widget="chips" dataset="ПН, ВТ. СР, ЧТ, ПТ, СБ, ВС"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow11">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn25">
+                            <wm-form-field readonly="false" name="Campaign_freqPerDay" displayname="Частота в день" key="Campaign.freqPerDay" type="integer" show="true" widget="number" minvalue="1" maxvalue="1000" step="1" defaultvalue="3"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn26">
+                            <wm-form-field readonly="false" name="Campaign_freqPerHour" displayname="Частота в час" key="Campaign.freqPerHour" type="integer" show="true" widget="number" defaultvalue="3" minvalue="1" maxvalue="1000" step="1"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn27">
+                            <wm-form-field readonly="false" name="Campaign_freqPerWeek" displayname="Частота в неделю" key="Campaign.freqPerWeek" type="integer" show="true" widget="number" defaultvalue="3" minvalue="1" maxvalue="1000" step="1"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow12">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn28">
+                            <wm-form-field readonly="false" name="Campaign_geoJson" displayname="Города" key="Campaign.geoJson" type="string" show="true" widget="chips" placeholder="Введите город..." dataset="Москва, Санкт-Петербург, Новосибирск, Екатеринбург"
+                            datafield="All Fields"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn29">
+                            <wm-form-field readonly="false" name="Campaign_hoursJson" displayname="Hours Json" key="Campaign.hoursJson" type="string" show="true" widget="chips"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn30">
+                            <wm-form-field readonly="false" name="Campaign_keywordsJson" displayname="Ключевые слова" key="Campaign.keywordsJson" type="string" show="true" widget="chips" placeholder="Ключевое слово..." dataset="bmw, купить bmw, купить mazda, купить машину, авто"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow13">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn31">
+                            <wm-form-field readonly="false" name="Campaign_name" displayname="Название кампании" key="Campaign.name" type="string" show="true" widget="text" placeholder="Новая кампания"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn32">
+                            <wm-form-field readonly="false" name="Campaign_osJson" displayname="Операционные системы" key="Campaign.osJson" type="string" show="true" widget="chips" dataset="bind:Variables.liveVariable4.dataSet" datafield="id" displayfield="os"
+                            placeholder="" defaultvalue="Windows"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn33">
+                            <wm-form-field readonly="false" name="Campaign_price" displayname="Цена (CPM/CPC)" key="Campaign.price" type="float" show="true" widget="number" placeholder="100" defaultvalue="100" minvalue="1" maxvalue="100000" step="1"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow14">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn34">
+                            <wm-form-field readonly="false" name="Campaign_priceType" displayname="Price Type" key="Campaign.priceType" type="integer" show="true" widget="select" dataset="0, 1"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn35">
+                            <wm-form-field readonly="false" name="Campaign_publisherId" displayname="Publisher Id" key="Campaign.publisherId" type="integer" show="true" widget="select" defaultvalue="1" dataset="1"></wm-form-field>
+                        </wm-gridcolumn>
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn36">
+                            <wm-form-field readonly="false" name="Campaign_status" displayname="Status" key="Campaign.status" type="integer" show="true" widget="number" defaultvalue="0"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow15">
+                        <wm-gridcolumn columnwidth="4" name="gridcolumn37">
+                            <wm-form-field readonly="false" name="Campaign_adses" displayname="Adses" key="Campaign.adses" type="list" show="true" widget="chips"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <wm-buttongroup horizontalalign="right" class="form-action col-md-12" name="buttongroup2">
+                    <wm-button caption="Reset" type="reset" class="btn-secondary" name="button4"></wm-button>
+                    <wm-button caption="Cancel" type="button" class="btn-warning" name="button5"></wm-button>
+                    <wm-button caption="Save" type="submit" class="btn-primary" name="button6"></wm-button>
+                </wm-buttongroup>
+            </wm-form>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

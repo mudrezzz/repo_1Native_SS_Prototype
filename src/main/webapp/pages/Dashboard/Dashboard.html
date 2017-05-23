@@ -1,11 +1,11 @@
-<wm-page data-ng-controller="DashboardPageController" name="page1">
+<wm-page data-ng-controller="DashboardPageController" name="page1" pagetitle="Dashboard">
     <wm-header content="header" name="header1"></wm-header>
     <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-container name="container1">
-                <wm-breadcrumb dataset="Home, Page" name="breadcrumb1"></wm-breadcrumb>
+                <wm-breadcrumb dataset="bind:&quot;Home , &quot; + Widgets.mainHeading.caption" name="breadcrumb1"></wm-breadcrumb>
             </wm-container>
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1" padding="0em unset">
@@ -26,7 +26,7 @@
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn12" class="col-xs-9" padding="unset unset unset 1em">
                                         <wm-label name="newVisitLabel" width="100%" caption="ПОКАЗОВ" class="text-uppercase p" textalign="center"></wm-label>
-                                        <wm-label width="100%" name="newVistValueLabel" caption="221" class="h1 p" margin="0px" color="#ffffff" textalign="center"></wm-label>
+                                        <wm-label width="100%" name="newVistValueLabel" caption="221 234" class="h1 p" margin="0px" color="#ffffff" textalign="center"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -41,7 +41,7 @@
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="9" name="gridcolumn21" class="col-xs-9" padding="unset unset unset 1em">
                                         <wm-label width="100%" caption="КЛИКОВ" class="text-uppercase" name="revenueLabel" textalign="center"></wm-label>
-                                        <wm-label width="100%" caption="2" class="h1" name="revenueValueLabel" margin="0px" color="#ffffff" textalign="center"></wm-label>
+                                        <wm-label width="100%" caption="1 432" class="h1" name="revenueValueLabel" margin="0px" color="#ffffff" textalign="center"></wm-label>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>

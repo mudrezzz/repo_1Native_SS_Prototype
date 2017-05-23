@@ -15,6 +15,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Settings",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Zones",
   "type" : "PAGE",
   "params" : [ ]
