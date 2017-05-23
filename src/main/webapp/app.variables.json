@@ -1145,7 +1145,7 @@
       "primaryFields" : [ "id" ]
     },
     "isDefault" : true,
-    "bindCount" : 3,
+    "bindCount" : 5,
     "tableName" : "STATS_DAYS",
     "tableType" : "TABLE",
     "properties" : [ "campaign", "ads", "browserDictionary", "osDictionary", "deviceDictionary", "tags" ],

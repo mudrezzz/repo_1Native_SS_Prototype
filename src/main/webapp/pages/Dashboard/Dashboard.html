@@ -80,8 +80,8 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow14">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn33_1" padding="1em .5em">
-                        <wm-chart type="Cumulative Line" title="Cumulative Line Chart" height="250px" iconclass="wi wi-line-chart" name="chart2" dataset="bind:Variables.serviceVariable2.dataSet" xaxisdatakey="date" yaxisdatakey="sum_clicks_,sum_impressions_,sum_summ_"
-                        xaxislabel="Дата" xdateformat="%x" formattype="date" yaxislabel="Значения" ynumberformat=".2f"></wm-chart>
+                        <wm-chart type="Line" title="Динамика кампаний" height="250px" iconclass="wi wi-line-chart" name="chart2_1" dataset="bind:Variables.FN_Service_dbStatsDaysData.dataSet" orderby="date:asc" offsetright="45" xaxislabel="Дата" xdateformat="%x"
+                        xaxisdatakey="date" yaxisdatakey="clicks,conversions,impressions,summ" formattype="date" ynumberformat=".0f" yaxislabel="Значения"></wm-chart>
                         <wm-grid title="Текущие кампании" dataset="bind:Variables.FN_Service_dbCampaignData.dataSet" navigation="None" name="grid1">
                             <wm-grid-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
                             <wm-grid-column binding="dateFrom" caption="Date From" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
